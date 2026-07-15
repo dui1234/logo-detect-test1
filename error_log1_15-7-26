@@ -1,0 +1,109 @@
+2026-07-15T09:28:51.2074894Z ##[section]Starting: Build YOLO11s Training Docker Image
+2026-07-15T09:28:51.2088783Z ==============================================================================
+2026-07-15T09:28:51.2088944Z Task         : Docker
+2026-07-15T09:28:51.2089068Z Description  : Build or push Docker images, login or logout, start or stop containers, or run a Docker command
+2026-07-15T09:28:51.2089405Z Version      : 2.276.0
+2026-07-15T09:28:51.2089671Z Author       : Microsoft Corporation
+2026-07-15T09:28:51.2089758Z Help         : https://aka.ms/azpipes-docker-tsg
+2026-07-15T09:28:51.2089865Z ==============================================================================
+2026-07-15T09:28:51.9838559Z [command]/usr/bin/docker pull ultralytics/ultralytics:latest
+2026-07-15T09:29:19.9597128Z ##[warning]Free disk space on / is lower than 5%; Currently used: 95.00%
+2026-07-15T09:29:21.2341985Z ##[warning]Free disk space on / is lower than 5%; Currently used: 95.00%
+2026-07-15T09:33:14.9366244Z failed to register layer: write /usr/local/lib/python3.12/dist-packages/nvidia/cusparselt/lib/libcusparseLt.so.0: no space left on device
+2026-07-15T09:33:14.9385269Z latest: Pulling from ultralytics/ultralytics
+2026-07-15T09:33:14.9385600Z 18dbadc1f2f9: Pulling fs layer
+2026-07-15T09:33:14.9403725Z 627649ff7456: Pulling fs layer
+2026-07-15T09:33:14.9404408Z a4fc1a7e11cd: Pulling fs layer
+2026-07-15T09:33:14.9405210Z dfc23d5a2773: Pulling fs layer
+2026-07-15T09:33:14.9405686Z 70516a22c83c: Pulling fs layer
+2026-07-15T09:33:14.9406720Z bf35bf168c8d: Pulling fs layer
+2026-07-15T09:33:14.9407564Z b2dc1f6278c1: Pulling fs layer
+2026-07-15T09:33:14.9408324Z 417e812f51a3: Pulling fs layer
+2026-07-15T09:33:14.9408783Z dcd2f1fd33e1: Pulling fs layer
+2026-07-15T09:33:14.9409460Z ca5121d27d06: Pulling fs layer
+2026-07-15T09:33:14.9409916Z 43098d954d79: Pulling fs layer
+2026-07-15T09:33:14.9410625Z 670cf26d0c5d: Pulling fs layer
+2026-07-15T09:33:14.9411434Z 69750182eb79: Pulling fs layer
+2026-07-15T09:33:14.9412174Z dfc23d5a2773: Waiting
+2026-07-15T09:33:14.9412638Z 70516a22c83c: Waiting
+2026-07-15T09:33:14.9413319Z bf35bf168c8d: Waiting
+2026-07-15T09:33:14.9413749Z b2dc1f6278c1: Waiting
+2026-07-15T09:33:14.9414550Z 417e812f51a3: Waiting
+2026-07-15T09:33:14.9414976Z dcd2f1fd33e1: Waiting
+2026-07-15T09:33:14.9415596Z ca5121d27d06: Waiting
+2026-07-15T09:33:14.9416042Z 43098d954d79: Waiting
+2026-07-15T09:33:14.9417025Z 670cf26d0c5d: Waiting
+2026-07-15T09:33:14.9417476Z 69750182eb79: Waiting
+2026-07-15T09:33:14.9423563Z 18dbadc1f2f9: Verifying Checksum
+2026-07-15T09:33:14.9424582Z 18dbadc1f2f9: Download complete
+2026-07-15T09:33:14.9619396Z 627649ff7456: Verifying Checksum
+2026-07-15T09:33:14.9621134Z 627649ff7456: Download complete
+2026-07-15T09:33:14.9623609Z dfc23d5a2773: Verifying Checksum
+2026-07-15T09:33:14.9625909Z dfc23d5a2773: Download complete
+2026-07-15T09:33:14.9628203Z bf35bf168c8d: Verifying Checksum
+2026-07-15T09:33:14.9630662Z bf35bf168c8d: Download complete
+2026-07-15T09:33:14.9767932Z 70516a22c83c: Verifying Checksum
+2026-07-15T09:33:14.9769187Z 70516a22c83c: Download complete
+2026-07-15T09:33:14.9769529Z b2dc1f6278c1: Verifying Checksum
+2026-07-15T09:33:14.9769793Z b2dc1f6278c1: Download complete
+2026-07-15T09:33:14.9770050Z dcd2f1fd33e1: Verifying Checksum
+2026-07-15T09:33:14.9770707Z dcd2f1fd33e1: Download complete
+2026-07-15T09:33:14.9770961Z 417e812f51a3: Verifying Checksum
+2026-07-15T09:33:14.9771220Z 417e812f51a3: Download complete
+2026-07-15T09:33:14.9771467Z 18dbadc1f2f9: Pull complete
+2026-07-15T09:33:14.9771717Z 43098d954d79: Verifying Checksum
+2026-07-15T09:33:14.9772159Z 43098d954d79: Download complete
+2026-07-15T09:33:14.9772561Z ca5121d27d06: Verifying Checksum
+2026-07-15T09:33:14.9772797Z ca5121d27d06: Download complete
+2026-07-15T09:33:14.9773028Z 670cf26d0c5d: Verifying Checksum
+2026-07-15T09:33:14.9773263Z 670cf26d0c5d: Download complete
+2026-07-15T09:33:14.9773500Z 69750182eb79: Verifying Checksum
+2026-07-15T09:33:14.9773752Z 69750182eb79: Download complete
+2026-07-15T09:33:14.9773989Z a4fc1a7e11cd: Verifying Checksum
+2026-07-15T09:33:14.9774393Z a4fc1a7e11cd: Download complete
+2026-07-15T09:33:14.9774627Z 627649ff7456: Pull complete
+2026-07-15T09:33:14.9774920Z [command]/usr/bin/docker inspect ultralytics/ultralytics:latest
+2026-07-15T09:33:15.0173624Z []
+2026-07-15T09:33:15.0244963Z Error: No such object: ultralytics/ultralytics:latest
+2026-07-15T09:33:15.0284354Z [command]/usr/bin/docker build -f /home/innohub/myagent/_work/126/s/test_1/Dockerfile --label com.azure.dev.image.system.teamfoundationcollectionuri=https://dev.azure.com/BBLCloud/ --label com.azure.dev.image.system.teamproject=aic --label com.azure.dev.image.build.repository.name=object_detection --label com.azure.dev.image.build.sourceversion=f0abd3e91cd10545f680b5094e5a0887aa78764a --label com.azure.dev.image.build.repository.uri=https://BBLCloud@dev.azure.com/BBLCloud/aic/_git/object_detection --label com.azure.dev.image.build.sourcebranchname=main --label com.azure.dev.image.build.definitionname=object_detection (1541) --label com.azure.dev.image.build.buildnumber=20260715.1 --label com.azure.dev.image.build.builduri=vstfs:///Build/Build/87455 --label image.base.ref.name=ultralytics/ultralytics:latest -t sscm.bangkokbank.com/inno-aicp-oci/h100/bank-logo-yolo11s/finetune:latest -t sscm.bangkokbank.com/inno-aicp-oci/h100/bank-logo-yolo11s/finetune:main /home/innohub/myagent/_work/126/s/test_1
+2026-07-15T09:33:15.6991656Z #0 building with "default" instance using docker driver
+2026-07-15T09:33:15.6992271Z 
+2026-07-15T09:33:15.6992709Z #1 [internal] load build definition from Dockerfile
+2026-07-15T09:33:15.6993615Z #1 transferring dockerfile: 744B 0.0s done
+2026-07-15T09:33:15.6994136Z #1 DONE 0.1s
+2026-07-15T09:33:15.9481606Z 
+2026-07-15T09:33:15.9482916Z #2 [internal] load metadata for docker.io/ultralytics/ultralytics:latest
+2026-07-15T09:33:16.7140215Z #2 ERROR: failed to authorize: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Aultralytics%2Fultralytics%3Apull&service=registry.docker.io": read tcp 10.4.200.244:38494->172.64.144.78:443: read: connection reset by peer
+2026-07-15T09:33:16.8980642Z ------
+2026-07-15T09:33:16.8981624Z  > [internal] load metadata for docker.io/ultralytics/ultralytics:latest:
+2026-07-15T09:33:16.8982232Z ------
+2026-07-15T09:33:16.9029614Z Dockerfile:2
+2026-07-15T09:33:16.9030708Z --------------------
+2026-07-15T09:33:16.9031903Z    1 |     # Official Ultralytics GPU-capable image
+2026-07-15T09:33:16.9033000Z    2 | >>> FROM ultralytics/ultralytics:latest
+2026-07-15T09:33:16.9033491Z    3 |     
+2026-07-15T09:33:16.9034924Z    4 |     
+2026-07-15T09:33:16.9035297Z --------------------
+2026-07-15T09:33:16.9036955Z ERROR: failed to build: failed to solve: ultralytics/ultralytics:latest: failed to resolve source metadata for docker.io/ultralytics/ultralytics:latest: failed to authorize: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Aultralytics%2Fultralytics%3Apull&service=registry.docker.io": read tcp 10.4.200.244:38494->172.64.144.78:443: read: connection reset by peer
+2026-07-15T09:33:16.9099019Z 
+2026-07-15T09:33:16.9126416Z ##[error]#0 building with "default" instance using docker driver
+2026-07-15T09:33:16.9127254Z ##[error]
+2026-07-15T09:33:16.9128112Z ##[error]#1 [internal] load build definition from Dockerfile
+2026-07-15T09:33:16.9129028Z ##[error]#1 transferring dockerfile: 744B 0.0s done
+2026-07-15T09:33:16.9129733Z ##[error]#1 DONE 0.1s
+2026-07-15T09:33:16.9129996Z ##[error]
+2026-07-15T09:33:16.9131990Z ##[error]#2 [internal] load metadata for docker.io/ultralytics/ultralytics:latest
+2026-07-15T09:33:16.9132438Z ##[error]#2 ERROR: failed to authorize: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Aultralytics%2Fultralytics%3Apull&service=registry.docker.io": read tcp 10.4.200.244:38494->172.64.144.78:443: read: connection reset by peer
+2026-07-15T09:33:16.9132995Z ##[error]------
+2026-07-15T09:33:16.9133563Z ##[error] > [internal] load metadata for docker.io/ultralytics/ultralytics:latest:
+2026-07-15T09:33:16.9134618Z ##[error]------
+2026-07-15T09:33:16.9135423Z ##[error]Dockerfile:2
+2026-07-15T09:33:16.9152957Z ##[error]--------------------
+2026-07-15T09:33:16.9156687Z ##[error]   1 |     # Official Ultralytics GPU-capable image
+2026-07-15T09:33:16.9160451Z ##[error]   2 | >>> FROM ultralytics/ultralytics:latest
+2026-07-15T09:33:16.9164557Z ##[error]   3 |     
+2026-07-15T09:33:16.9167929Z ##[error]   4 |     
+2026-07-15T09:33:16.9171052Z ##[error]--------------------
+2026-07-15T09:33:16.9175482Z ##[error]ERROR: failed to build: failed to solve: ultralytics/ultralytics:latest: failed to resolve source metadata for docker.io/ultralytics/ultralytics:latest: failed to authorize: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Aultralytics%2Fultralytics%3Apull&service=registry.docker.io": read tcp 10.4.200.244:38494->172.64.144.78:443: read: connection reset by peer
+2026-07-15T09:33:16.9325640Z ##[error]The process '/usr/bin/docker' failed with exit code 1
+2026-07-15T09:33:16.9489063Z ##[section]Finishing: Build YOLO11s Training Docker Image
