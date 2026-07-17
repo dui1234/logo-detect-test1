@@ -1,0 +1,73 @@
+pool:
+  name: "Dev Pool"
+  demands:
+    - Agent.Name -equals vm-bbl-sea-aic-dev-app-01
+  vmImage: ubuntu-latest
+
+trigger: none
+
+variables:
+
+  # JFrog Docker Registry service connection
+  - name: REGISTRY_JFROG_NAME
+    value: OCI-IN-SEA-AIC-01
+
+  # IMPORTANT:
+  # Confirm this exact JFrog repository path ???
+  - name: yoloTrainingImage
+    value: inno-aicp-oci/h100/bank-logo-yolo11s/finetune
+
+
+steps:
+
+  # ==========================================================
+  # STEP 1: BUILD THE DOCKER IMAGE
+  # ==========================================================
+
+  - task: Docker@2
+    inputs:
+      command: build
+
+      # Azure DevOps service connection for JFrog
+      containerRegistry: $(REGISTRY_JFROG_NAME)
+
+      # My Dockerfile
+      Dockerfile: test_1/Dockerfile
+
+      # Name/path of the image in JFrog
+      repository: $(yoloTrainingImage)
+
+      # The repository root is sent to docker build
+      buildContext: test_1
+
+      # Create two tags
+      tags: |
+        latest
+        $(Build.SourceBranchName)
+
+    displayName: Build YOLO11s Training Docker Image
+
+
+  # ==========================================================
+  # STEP 2: PUSH THE IMAGE TO JFROG
+  # ==========================================================
+
+  - task: Docker@2
+    inputs:
+      command: push
+
+      containerRegistry: $(REGISTRY_JFROG_NAME)
+
+      repository: $(yoloTrainingImage)
+
+      tags: |
+        latest
+        $(Build.SourceBranchName)
+
+    displayName: Push YOLO11s Training Image to JFrog
+
+  - bash: |
+      docker rmi -f $(REGISTRY_JFROG_NAME).azurecr.io/$(yoloTrainingImage):latest || true
+      docker rmi -f $(REGISTRY_JFROG_NAME).azurecr.io/$(yoloTrainingImage):$(BUILD_VERSION) || true
+      docker rmi -f $(REGISTRY_JFROG_NAME).azurecr.io/$(yoloTrainingImage):$(Build.SourceBranchName) || true
+    displayName: Clean up local Docker images
