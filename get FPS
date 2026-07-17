@@ -1,0 +1,69 @@
+speed = dict(getattr(metrics, "speed", {}) or {})
+
+preprocess_ms = float(speed.get("preprocess", 0.0))
+inference_ms = float(speed.get("inference", 0.0))
+postprocess_ms = float(speed.get("postprocess", 0.0))
+
+pipeline_ms = (
+    preprocess_ms
+    + inference_ms
+    + postprocess_ms
+)
+
+inference_fps = (
+    1000.0 / inference_ms
+    if inference_ms > 0
+    else None
+)
+
+pipeline_fps = (
+    1000.0 / pipeline_ms
+    if pipeline_ms > 0
+    else None
+)
+
+
+summary = {
+    "experiment": label,
+    "model_path": str(model_path.resolve()),
+    "imgsz": imgsz,
+    "device": device,
+
+    "precision": get_result_value(
+        raw_results,
+        "precision",
+    ),
+
+    "recall": get_result_value(
+        raw_results,
+        "recall",
+    ),
+
+    "mAP50": float(metrics.box.map50),
+    "mAP75": float(metrics.box.map75),
+    "mAP50-95": float(metrics.box.map),
+
+    # Speed information
+    "preprocess_ms_per_image": preprocess_ms,
+    "inference_ms_per_image": inference_ms,
+    "postprocess_ms_per_image": postprocess_ms,
+    "pipeline_ms_per_image": pipeline_ms,
+
+    "inference_fps": inference_fps,
+    "pipeline_fps": pipeline_fps,
+
+    "speed_ms_per_image": to_builtin(speed),
+    "ultralytics_results": to_builtin(raw_results),
+}
+
+print(f"  Preprocess:   {preprocess_ms:.3f} ms/image")
+print(f"  Inference:    {inference_ms:.3f} ms/image")
+print(f"  Postprocess:  {postprocess_ms:.3f} ms/image")
+print(f"  Pipeline:     {pipeline_ms:.3f} ms/image")
+
+if inference_fps is not None:
+    print(f"  Inference FPS: {inference_fps:.2f}")
+
+if pipeline_fps is not None:
+    print(f"  Pipeline FPS:  {pipeline_fps:.2f}")
+
