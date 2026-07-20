@@ -1,0 +1,101 @@
+pool:
+  name: "Dev Pool"
+  demands:
+    - Agent.Name -equals vm-bbl-sea-aic-dev-app-01
+  vmImage: ubuntu-latest
+
+# Manual pipeline run.
+# In Azure DevOps, choose branch: main
+trigger: none
+pr: none
+
+# This is the Docker image tag that will appear in JFrog.
+# Example: yolo-eval-v1.0.0
+parameters:
+  - name: imageTag
+    displayName: JFrog Docker image tag
+    type: string
+    default: yolo-eval-v1.0.0
+
+variables:
+  # Azure DevOps Docker registry service connection
+  - name: REGISTRY_JFROG_NAME
+    value: OCI-IN-SEA-AIC-01
+
+  # Actual JFrog Docker hostname, used for explicit local cleanup
+  - name: REGISTRY_JFROG_HOST
+    value: sscm.bangkokbank.com
+
+  # Repository path inside JFrog
+  - name: yoloEvalImage
+    value: inno-aicp-oci/h100/bank-logo-yolo11s/eval
+
+  # Docker build-context folder in the Git repository
+  - name: yoloEvalBuildContext
+    value: yolo_eval_h100
+
+steps:
+  - checkout: self
+    clean: true
+
+  # Make sure the source code really comes from main,
+  # and validate the user-supplied Docker/JFrog tag.
+  - bash: |
+      set -euo pipefail
+
+      echo "Source branch: $(Build.SourceBranch)"
+      echo "Commit:        $(Build.SourceVersion)"
+      echo "JFrog tag:     ${IMAGE_TAG}"
+
+      if [[ "$(Build.SourceBranch)" != "refs/heads/main" ]]; then
+        echo "ERROR: Run this pipeline from the main branch."
+        echo "Received: $(Build.SourceBranch)"
+        exit 1
+      fi
+
+      if [[ ! "${IMAGE_TAG}" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$ ]]; then
+        echo "ERROR: Invalid Docker image tag: ${IMAGE_TAG}"
+        echo "Use only letters, numbers, underscore, period, and hyphen."
+        echo "Example: yolo-eval-v1.0.0"
+        exit 1
+      fi
+    displayName: Verify Main Branch and Image Tag
+    env:
+      IMAGE_TAG: ${{ parameters.imageTag }}
+
+  - task: Docker@2
+    inputs:
+      command: build
+      containerRegistry: $(REGISTRY_JFROG_NAME)
+      Dockerfile: $(yoloEvalBuildContext)/Dockerfile
+      repository: $(yoloEvalImage)
+      buildContext: $(yoloEvalBuildContext)
+      tags: |
+        ${{ parameters.imageTag }}
+        build-$(Build.BuildId)
+    displayName: Build YOLO Evaluation Image
+
+  - task: Docker@2
+    inputs:
+      command: push
+      containerRegistry: $(REGISTRY_JFROG_NAME)
+      repository: $(yoloEvalImage)
+      tags: |
+        ${{ parameters.imageTag }}
+        build-$(Build.BuildId)
+    displayName: Push YOLO Evaluation Image to JFrog
+
+  - bash: |
+      set -euo pipefail
+
+      echo "Removing local images created by this run..."
+
+      docker rmi -f         "$(REGISTRY_JFROG_HOST)/$(yoloEvalImage):${IMAGE_TAG}"         || true
+
+      docker rmi -f         "$(REGISTRY_JFROG_HOST)/$(yoloEvalImage):build-$(Build.BuildId)"         || true
+
+      echo "Cleanup completed."
+    displayName: Clean Up Local Evaluation Images
+    condition: always()
+    env:
+      IMAGE_TAG: ${{ parameters.imageTag }}
