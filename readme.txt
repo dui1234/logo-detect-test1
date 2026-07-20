@@ -14,3 +14,7 @@ SKIP_PREDICTIONS=1 ./run_yolo_test.sh \
     0.45 \
     4 \
     2
+
+
+20/7/26
+time yolo detect predict model=../yolo11s_640_exp01/weights/best.pt source=../bank_logo_dataset/images/test_0.5 imgsz=640 conf=0.50 iou=0.45 device=cpu save=True save_txt=True save_conf=True project=./pred_results_2 name=yolo11_640
