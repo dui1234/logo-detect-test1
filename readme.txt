@@ -32,3 +32,5 @@ time yolo detect predict model=../yolo11s_640_exp01/weights/best.pt source=../ba
 
     echo "Local Docker image cleanup completed."
   displayName: Clean Up Local Docker Images
+
+CMD ["--photos-root", "/workspace/Photos", "--labels-root", "/workspace/labels/test", "--dataset-yaml", "/workspace/dataset.yaml", "--model-640", "/workspace/models/yolo11s_640_best.pt", "--model-960", "/workspace/models/yolo11s_960_best.pt", "--output-dir", "/outputs", "--device", "0", "--val-batch", "16", "--benchmark-batch", "1", "--predict-batch", "16", "--benchmark-repeats", "5", "--warmup-runs", "3", "--workers", "8", "--val-conf", "0.001", "--val-nms-iou", "0.70", "--predict-conf", "0.50", "--predict-iou", "0.45", "--half"]
