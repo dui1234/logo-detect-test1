@@ -1,0 +1,391 @@
+2026-07-21T09:26:14.7977705Z ##[section]Starting: Job
+2026-07-21T09:26:15.0541608Z ##[section]Starting: Initialize job
+2026-07-21T09:26:15.0546555Z Agent name: 'vm-bbl-sea-aic-dev-app-01'
+2026-07-21T09:26:15.0547672Z Agent machine name: 'vm-bbl-sea-aic-dev-app-01'
+2026-07-21T09:26:15.0547937Z Current agent version: '4.264.2'
+2026-07-21T09:26:15.1909581Z Agent running as: 'innohub'
+2026-07-21T09:26:15.1910240Z Agent is running behind proxy server: 'http://10.4.7.4:8080'
+2026-07-21T09:26:15.1964721Z Prepare build directory.
+2026-07-21T09:26:15.2418360Z Set build variables.
+2026-07-21T09:26:15.2445360Z Download all required tasks.
+2026-07-21T09:26:15.3383914Z Checking job knob settings.
+2026-07-21T09:26:15.3387312Z    Knob: DockerActionRetries = true Source: $(VSTSAGENT_DOCKER_ACTION_RETRIES) 
+2026-07-21T09:26:15.3388984Z    Knob: UseGitLongPaths = true Source: $(USE_GIT_LONG_PATHS) 
+2026-07-21T09:26:15.3391801Z    Knob: EnableIssueSourceValidation = true Source: $(ENABLE_ISSUE_SOURCE_VALIDATION) 
+2026-07-21T09:26:15.3392956Z    Knob: AgentEnablePipelineArtifactLargeChunkSize = true Source: $(AGENT_ENABLE_PIPELINEARTIFACT_LARGE_CHUNK_SIZE) 
+2026-07-21T09:26:15.3395825Z    Knob: ContinueAfterCancelProcessTreeKillAttempt = true Source: $(VSTSAGENT_CONTINUE_AFTER_CANCEL_PROCESSTREEKILL_ATTEMPT) 
+2026-07-21T09:26:15.3396849Z    Knob: ProcessHandlerSecureArguments = false Source: $(AZP_75787_ENABLE_NEW_LOGIC) 
+2026-07-21T09:26:15.3397411Z    Knob: ProcessHandlerSecureArguments = false Source: $(AZP_75787_ENABLE_NEW_LOGIC_LOG) 
+2026-07-21T09:26:15.3397952Z    Knob: ProcessHandlerTelemetry = true Source: $(AZP_75787_ENABLE_COLLECT) 
+2026-07-21T09:26:15.3398562Z    Knob: UseNewNodeHandlerTelemetry = True Source: $(DistributedTask.Agent.USENEWNODEHANDLERTELEMETRY) 
+2026-07-21T09:26:15.3399130Z    Knob: ProcessHandlerEnableNewLogic = true Source: $(AZP_75787_ENABLE_NEW_PH_LOGIC) 
+2026-07-21T09:26:15.3401069Z    Knob: EnableResourceMonitorDebugOutput = true Source: $(AZP_ENABLE_RESOURCE_MONITOR_DEBUG_OUTPUT) 
+2026-07-21T09:26:15.3401721Z    Knob: EnableResourceUtilizationWarnings = true Source: $(AZP_ENABLE_RESOURCE_UTILIZATION_WARNINGS) 
+2026-07-21T09:26:15.3403575Z    Knob: IgnoreVSTSTaskLib = true Source: $(AZP_AGENT_IGNORE_VSTSTASKLIB) 
+2026-07-21T09:26:15.3404317Z    Knob: FailJobWhenAgentDies = true Source: $(FAIL_JOB_WHEN_AGENT_DIES) 
+2026-07-21T09:26:15.3405078Z    Knob: CheckForTaskDeprecation = true Source: $(AZP_AGENT_CHECK_FOR_TASK_DEPRECATION) 
+2026-07-21T09:26:15.3406613Z    Knob: CheckIfTaskNodeRunnerIsDeprecated246 = True Source: $(DistributedTask.Agent.CheckIfTaskNodeRunnerIsDeprecated246) 
+2026-07-21T09:26:15.3407595Z    Knob: UseNode20ToStartContainer = True Source: $(DistributedTask.Agent.UseNode20ToStartContainer) 
+2026-07-21T09:26:15.3408242Z    Knob: EnableTimeoutLogFlushing = True Source: $(DistributedTask.Agent.EnableTimeoutLogFlushing) 
+2026-07-21T09:26:15.3409082Z    Knob: LogTaskNameInUserAgent = true Source: $(AZP_AGENT_LOG_TASKNAME_IN_USERAGENT) 
+2026-07-21T09:26:15.3410132Z    Knob: UseFetchFilterInCheckoutTask = true Source: $(AGENT_USE_FETCH_FILTER_IN_CHECKOUT_TASK) 
+2026-07-21T09:26:15.3410863Z    Knob: Rosetta2Warning = true Source: $(ROSETTA2_WARNING) 
+2026-07-21T09:26:15.3412672Z    Knob: AddForceCredentialsToGitCheckout = True Source: $(DistributedTask.Agent.AddForceCredentialsToGitCheckout) 
+2026-07-21T09:26:15.3413485Z    Knob: AddForceCredentialsToGitCheckoutEnhanced = True Source: $(DistributedTask.Agent.AddForceCredentialsToGitCheckoutEnhanced) 
+2026-07-21T09:26:15.3414736Z    Knob: UseLatestTfExe = True Source: $(DistributedTask.Agent.UseLatestTfExe) 
+2026-07-21T09:26:15.3415336Z    Knob: UseSparseCheckoutInCheckoutTask = true Source: $(AGENT_USE_SPARSE_CHECKOUT_IN_CHECKOUT_TASK) 
+2026-07-21T09:26:15.3416133Z    Knob: AgentCDNConnectivityFailWarning = False Source: $(DistributedTask.Agent.AgentCDNConnectivityFailWarning) 
+2026-07-21T09:26:15.3416746Z    Knob: UseEnhancedLogging = true Source: ${AZP_USE_ENHANCED_LOGGING} 
+2026-07-21T09:26:15.3417019Z Finished checking job knob settings.
+2026-07-21T09:26:15.3762561Z Start tracking orphan processes.
+2026-07-21T09:26:15.4014109Z ##[section]Finishing: Initialize job
+2026-07-21T09:26:15.4119329Z ##[section]Async Command Start: DetectDockerContainer
+2026-07-21T09:26:15.4120406Z ##[section]Async Command End: DetectDockerContainer
+2026-07-21T09:26:15.4122439Z ##[section]Async Command Start: DetectDockerContainer
+2026-07-21T09:26:15.4122818Z ##[section]Async Command End: DetectDockerContainer
+2026-07-21T09:26:15.4395121Z ##[section]Starting: Checkout object_detection@refs/tags/v2.2 to s
+2026-07-21T09:26:15.4542334Z ==============================================================================
+2026-07-21T09:26:15.4543785Z Task         : Get sources
+2026-07-21T09:26:15.4544354Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2026-07-21T09:26:15.4544607Z Version      : 1.0.0
+2026-07-21T09:26:15.4545021Z Author       : Microsoft
+2026-07-21T09:26:15.4545599Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2026-07-21T09:26:15.4545898Z ==============================================================================
+2026-07-21T09:26:15.9859627Z Syncing repository: object_detection (Git)
+2026-07-21T09:26:15.9879562Z ##[command]git version
+2026-07-21T09:26:16.0119876Z git version 2.25.1
+2026-07-21T09:26:16.0271350Z ##[command]git config --get remote.origin.url
+2026-07-21T09:26:16.0337583Z ##[command]git clean -ffdx
+2026-07-21T09:26:16.0614393Z ##[command]git reset --hard HEAD
+2026-07-21T09:26:16.1307487Z HEAD is now at 6ef50c8 update Haar folder v3
+2026-07-21T09:26:16.1329418Z ##[command]git sparse-checkout disable
+2026-07-21T09:26:16.2119855Z ##[command]git config gc.auto 0
+2026-07-21T09:26:16.2229827Z ##[command]git config core.longpaths true
+2026-07-21T09:26:16.2254339Z ##[command]git config --get-all http.https://BBLCloud@dev.azure.com/BBLCloud/aic/_git/object_detection.extraheader
+2026-07-21T09:26:16.2305613Z ##[command]git config --get-all http.extraheader
+2026-07-21T09:26:16.2349013Z ##[command]git config --get-regexp .*extraheader
+2026-07-21T09:26:16.2388940Z ##[command]git config --get-all http.proxy
+2026-07-21T09:26:16.2420378Z ##[command]git config http.version HTTP/1.1
+2026-07-21T09:26:16.2447843Z ##[command]git config --get-all remote.origin.promisor
+2026-07-21T09:26:16.2487981Z ##[command]git config --get-all remote.origin.partialclonefilter
+2026-07-21T09:26:16.2543186Z ##[command]git -c http.extraheader="AUTHORIZATION: bearer *** -c http.proxy="http://10.4.7.4:8080" fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin --depth=1  +6ef50c8dc1c93a367286ff57870220aa5b0ef478:refs/remotes/origin/6ef50c8dc1c93a367286ff57870220aa5b0ef478
+2026-07-21T09:26:16.4300725Z remote: Azure Repos        
+2026-07-21T09:26:16.4413569Z remote: 
+2026-07-21T09:26:16.4414275Z remote: Found 4 objects to send. (14 ms)        
+2026-07-21T09:26:16.5505597Z ##[command]git -c http.extraheader="AUTHORIZATION: bearer *** -c http.proxy="http://10.4.7.4:8080" fetch --force --tags --prune --prune-tags --progress --no-recurse-submodules origin --depth=1  +6ef50c8dc1c93a367286ff57870220aa5b0ef478
+2026-07-21T09:26:17.0445149Z remote: Azure Repos        
+2026-07-21T09:26:17.0536126Z remote: 
+2026-07-21T09:26:17.0539271Z remote: Found 0 objects to send. (10 ms)        
+2026-07-21T09:26:17.0698311Z From https://dev.azure.com/BBLCloud/aic/_git/object_detection
+2026-07-21T09:26:17.0743720Z  * branch            6ef50c8dc1c93a367286ff57870220aa5b0ef478 -> FETCH_HEAD
+2026-07-21T09:26:17.2129345Z ##[command]git checkout --progress --force refs/remotes/origin/6ef50c8dc1c93a367286ff57870220aa5b0ef478
+2026-07-21T09:26:17.2169429Z HEAD is now at 6ef50c8 update Haar folder v3
+2026-07-21T09:26:17.2277871Z ##[section]Finishing: Checkout object_detection@refs/tags/v2.2 to s
+2026-07-21T09:26:17.2361723Z ##[section]Starting: Build Parallel Haar Training Docker Image
+2026-07-21T09:26:17.2379192Z ==============================================================================
+2026-07-21T09:26:17.2379806Z Task         : Docker
+2026-07-21T09:26:17.2380242Z Description  : Build or push Docker images, login or logout, start or stop containers, or run a Docker command
+2026-07-21T09:26:17.2380537Z Version      : 2.276.0
+2026-07-21T09:26:17.2380667Z Author       : Microsoft Corporation
+2026-07-21T09:26:17.2380847Z Help         : https://aka.ms/azpipes-docker-tsg
+2026-07-21T09:26:17.2380992Z ==============================================================================
+2026-07-21T09:26:18.1854186Z [command]/usr/bin/docker pull ubuntu:22.04
+2026-07-21T09:26:19.9553093Z 22.04: Pulling from library/ubuntu
+2026-07-21T09:26:19.9554064Z Digest: sha256:0e0a0fc6d18feda9db1590da249ac93e8d5abfea8f4c3c0c849ce512b5ef8982
+2026-07-21T09:26:19.9554767Z Status: Image is up to date for ubuntu:22.04
+2026-07-21T09:26:19.9555780Z docker.io/library/ubuntu:22.04
+2026-07-21T09:26:19.9561662Z [command]/usr/bin/docker inspect ubuntu:22.04
+2026-07-21T09:26:19.9783653Z [
+2026-07-21T09:26:19.9785410Z     {
+2026-07-21T09:26:19.9786044Z         "Id": "sha256:b8e6b596a32475661d9fcaf4a212fcc7736e0d8d1494973aefdbcc71c442d890",
+2026-07-21T09:26:19.9786677Z         "RepoTags": [
+2026-07-21T09:26:19.9787539Z             "ubuntu:22.04"
+2026-07-21T09:26:19.9788665Z         ],
+2026-07-21T09:26:19.9789097Z         "RepoDigests": [
+2026-07-21T09:26:19.9789736Z             "ubuntu@sha256:0e0a0fc6d18feda9db1590da249ac93e8d5abfea8f4c3c0c849ce512b5ef8982"
+2026-07-21T09:26:19.9790229Z         ],
+2026-07-21T09:26:19.9790751Z         "Parent": "",
+2026-07-21T09:26:19.9791386Z         "Comment": "",
+2026-07-21T09:26:19.9791926Z         "Created": "2026-06-29T11:07:32.771054874Z",
+2026-07-21T09:26:19.9792739Z         "DockerVersion": "26.1.3",
+2026-07-21T09:26:19.9793185Z         "Author": "",
+2026-07-21T09:26:19.9793676Z         "Config": {
+2026-07-21T09:26:19.9794123Z             "Hostname": "",
+2026-07-21T09:26:19.9794690Z             "Domainname": "",
+2026-07-21T09:26:19.9795212Z             "User": "",
+2026-07-21T09:26:19.9795683Z             "AttachStdin": false,
+2026-07-21T09:26:19.9796133Z             "AttachStdout": false,
+2026-07-21T09:26:19.9796676Z             "AttachStderr": false,
+2026-07-21T09:26:19.9797365Z             "Tty": false,
+2026-07-21T09:26:19.9797817Z             "OpenStdin": false,
+2026-07-21T09:26:19.9798364Z             "StdinOnce": false,
+2026-07-21T09:26:19.9798884Z             "Env": [
+2026-07-21T09:26:19.9799429Z                 "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+2026-07-21T09:26:19.9799878Z             ],
+2026-07-21T09:26:19.9800281Z             "Cmd": [
+2026-07-21T09:26:19.9800743Z                 "/bin/bash"
+2026-07-21T09:26:19.9801228Z             ],
+2026-07-21T09:26:19.9801770Z             "Image": "sha256:56e68eae0956ec1d1fc63cdb38d0f6d02b573b37be106a09d71dc044869c0f51",
+2026-07-21T09:26:19.9802871Z             "Volumes": null,
+2026-07-21T09:26:19.9803308Z             "WorkingDir": "",
+2026-07-21T09:26:19.9803723Z             "Entrypoint": null,
+2026-07-21T09:26:19.9804357Z             "OnBuild": null,
+2026-07-21T09:26:19.9804945Z             "Labels": {
+2026-07-21T09:26:19.9805469Z                 "org.opencontainers.image.version": "22.04"
+2026-07-21T09:26:19.9805907Z             }
+2026-07-21T09:26:19.9806285Z         },
+2026-07-21T09:26:19.9806758Z         "Architecture": "amd64",
+2026-07-21T09:26:19.9807187Z         "Os": "linux",
+2026-07-21T09:26:19.9807702Z         "Size": 78072212,
+2026-07-21T09:26:19.9808152Z         "GraphDriver": {
+2026-07-21T09:26:19.9808627Z             "Data": {
+2026-07-21T09:26:19.9809139Z                 "MergedDir": "/var/lib/docker/overlay2/30e749cde1f7f692ff5ad97f5e3082787dd0c6ed87a8cbc28459b68ba750b8c3/merged",
+2026-07-21T09:26:19.9810200Z                 "UpperDir": "/var/lib/docker/overlay2/30e749cde1f7f692ff5ad97f5e3082787dd0c6ed87a8cbc28459b68ba750b8c3/diff",
+2026-07-21T09:26:19.9811815Z                 "WorkDir": "/var/lib/docker/overlay2/30e749cde1f7f692ff5ad97f5e3082787dd0c6ed87a8cbc28459b68ba750b8c3/work"
+2026-07-21T09:26:19.9812221Z             },
+2026-07-21T09:26:19.9812508Z             "Name": "overlay2"
+2026-07-21T09:26:19.9812947Z         },
+2026-07-21T09:26:19.9813270Z         "RootFS": {
+2026-07-21T09:26:19.9813771Z             "Type": "layers",
+2026-07-21T09:26:19.9814035Z             "Layers": [
+2026-07-21T09:26:19.9814403Z                 "sha256:10f9108f6cebf96e05cadfab3c188071f3c6d084abe680fd0bc9f61c268e854d"
+2026-07-21T09:26:19.9814976Z             ]
+2026-07-21T09:26:19.9815288Z         },
+2026-07-21T09:26:19.9815534Z         "Metadata": {
+2026-07-21T09:26:19.9815841Z             "LastTagTime": "0001-01-01T00:00:00Z"
+2026-07-21T09:26:19.9816109Z         }
+2026-07-21T09:26:19.9816339Z     }
+2026-07-21T09:26:19.9816689Z ]
+2026-07-21T09:26:19.9818306Z [command]/usr/bin/docker build -f /home/innohub/myagent/_work/3/s/Haar/train_parallel_v1/Dockerfile --label com.azure.dev.image.system.teamfoundationcollectionuri=https://dev.azure.com/BBLCloud/ --label com.azure.dev.image.system.teamproject=aic --label com.azure.dev.image.build.repository.name=object_detection --label com.azure.dev.image.build.sourceversion=6ef50c8dc1c93a367286ff57870220aa5b0ef478 --label com.azure.dev.image.build.repository.uri=https://BBLCloud@dev.azure.com/BBLCloud/aic/_git/object_detection --label com.azure.dev.image.build.sourcebranchname=v2.2 --label com.azure.dev.image.build.definitionname=object_detection (1561) --label com.azure.dev.image.build.buildnumber=20260721.3 --label com.azure.dev.image.build.builduri=vstfs:///Build/Build/88356 --label image.base.ref.name=ubuntu:22.04 --label image.base.digest=sha256:0e0a0fc6d18feda9db1590da249ac93e8d5abfea8f4c3c0c849ce512b5ef8982 --build-arg OPENCV_VERSION=3.4.20 --build-arg OPENCV_BUILD_JOBS=8 -t sscm.bangkokbank.com/inno-aicp-oci/cpu/bank-logo-haar/finetune:latest -t sscm.bangkokbank.com/inno-aicp-oci/cpu/bank-logo-haar/finetune:v2.2 -t sscm.bangkokbank.com/inno-aicp-oci/cpu/bank-logo-haar/finetune:88356 /home/innohub/myagent/_work/3/s/Haar/train_parallel_v1
+2026-07-21T09:26:20.4208160Z #0 building with "default" instance using docker driver
+2026-07-21T09:26:20.4209488Z 
+2026-07-21T09:26:20.4210016Z #1 [internal] load build definition from Dockerfile
+2026-07-21T09:26:20.4210558Z #1 transferring dockerfile: 2.61kB done
+2026-07-21T09:26:20.4211002Z #1 DONE 0.1s
+2026-07-21T09:26:20.4211251Z 
+2026-07-21T09:26:20.4211634Z #2 [internal] load metadata for docker.io/library/ubuntu:22.04
+2026-07-21T09:26:20.4212032Z #2 DONE 0.0s
+2026-07-21T09:26:20.5599567Z 
+2026-07-21T09:26:20.5600216Z #3 [internal] load .dockerignore
+2026-07-21T09:26:20.5600547Z #3 transferring context:
+2026-07-21T09:26:20.7019398Z #3 transferring context: 163B done
+2026-07-21T09:26:20.7019709Z #3 DONE 0.1s
+2026-07-21T09:26:20.7019860Z 
+2026-07-21T09:26:20.7020133Z #4 [ 1/11] FROM docker.io/library/ubuntu:22.04
+2026-07-21T09:26:20.7020395Z #4 CACHED
+2026-07-21T09:26:20.7020821Z 
+2026-07-21T09:26:20.7021107Z #5 [internal] load build context
+2026-07-21T09:26:23.9063402Z #5 transferring context: 186.34MB 3.0s done
+2026-07-21T09:26:23.9065765Z #5 DONE 3.1s
+2026-07-21T09:26:23.9067626Z 
+2026-07-21T09:26:23.9068172Z #6 [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*
+2026-07-21T09:26:23.9068754Z #6 1.441 Ign:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:23.9069217Z #6 1.734 Ign:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:23.9069642Z #6 2.397 Ign:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:23.9069996Z #6 2.874 Ign:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:23.9278357Z #6 3.305 Ign:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:24.2776331Z #6 3.654 Ign:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:24.9771559Z #6 4.354 Ign:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:25.4094360Z #6 4.786 Ign:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:26.3939570Z #6 5.770 Ign:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:27.2382121Z #6 6.615 Ign:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:27.7124901Z #6 7.089 Ign:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:28.1763580Z #6 7.553 Ign:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:30.8668500Z #6 10.24 Err:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:30.8668961Z #6 10.24   Connection failed [IP: 91.189.92.23 80]
+2026-07-21T09:26:31.7017858Z #6 11.08 Err:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:31.7018437Z #6 11.08   Connection failed [IP: 185.125.190.83 80]
+2026-07-21T09:26:32.1859993Z #6 11.56 Err:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:32.1860622Z #6 11.56   Connection failed [IP: 185.125.190.82 80]
+2026-07-21T09:26:32.6009151Z #6 11.98 Err:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:32.6010001Z #6 11.98   Connection failed [IP: 91.189.91.83 80]
+2026-07-21T09:26:32.7959570Z #6 11.98 Reading package lists...
+2026-07-21T09:26:32.7960422Z #6 11.99 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease  Connection failed [IP: 91.189.92.23 80]
+2026-07-21T09:26:32.7961395Z #6 11.99 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease  Connection failed [IP: 185.125.190.82 80]
+2026-07-21T09:26:32.7962188Z #6 11.99 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy-backports/InRelease  Connection failed [IP: 91.189.91.83 80]
+2026-07-21T09:26:32.7962611Z #6 11.99 W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/jammy-security/InRelease  Connection failed [IP: 185.125.190.83 80]
+2026-07-21T09:26:32.7962987Z #6 11.99 W: Some index files failed to download. They have been ignored, or old ones used instead.
+2026-07-21T09:26:32.7963437Z #6 12.01 Reading package lists...
+2026-07-21T09:26:32.7963721Z #6 12.02 Building dependency tree...
+2026-07-21T09:26:32.7964330Z #6 12.02 Reading state information...
+2026-07-21T09:26:32.7964741Z #6 12.02 Package ca-certificates is not available, but is referred to by another package.
+2026-07-21T09:26:32.7965029Z #6 12.02 This may mean that the package is missing, has been obsoleted, or
+2026-07-21T09:26:32.7965352Z #6 12.02 is only available from another source
+2026-07-21T09:26:32.7965574Z #6 12.02 
+2026-07-21T09:26:32.7965989Z #6 12.02 E: Unable to locate package build-essential
+2026-07-21T09:26:32.7966457Z #6 12.02 E: Package 'ca-certificates' has no installation candidate
+2026-07-21T09:26:32.7966773Z #6 12.02 E: Unable to locate package cmake
+2026-07-21T09:26:32.7967307Z #6 12.02 E: Unable to locate package git
+2026-07-21T09:26:32.7967754Z #6 12.02 E: Unable to locate package libjpeg-dev
+2026-07-21T09:26:32.7968018Z #6 12.02 E: Unable to locate package libpng-dev
+2026-07-21T09:26:32.7968283Z #6 12.02 E: Unable to locate package libtbb-dev
+2026-07-21T09:26:32.7968717Z #6 12.02 E: Unable to locate package libtiff-dev
+2026-07-21T09:26:32.7969040Z #6 12.02 E: Unable to locate package pkg-config
+2026-07-21T09:26:32.7969324Z #6 12.02 E: Unable to locate package python3
+2026-07-21T09:26:32.7969595Z #6 12.02 E: Unable to locate package python3-pip
+2026-07-21T09:26:32.7970193Z #6 12.02 E: Unable to locate package python-is-python3
+2026-07-21T09:26:32.7970496Z #6 12.02 E: Unable to locate package tini
+2026-07-21T09:26:36.1975137Z #6 ERROR: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+2026-07-21T09:26:36.3540321Z ------
+2026-07-21T09:26:36.3541087Z  > [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*:
+2026-07-21T09:26:36.3542021Z 12.02 E: Unable to locate package git
+2026-07-21T09:26:36.3542362Z 12.02 E: Unable to locate package libjpeg-dev
+2026-07-21T09:26:36.3542698Z 12.02 E: Unable to locate package libpng-dev
+2026-07-21T09:26:36.3543452Z 12.02 E: Unable to locate package libtbb-dev
+2026-07-21T09:26:36.3543814Z 12.02 E: Unable to locate package libtiff-dev
+2026-07-21T09:26:36.3544200Z 12.02 E: Unable to locate package pkg-config
+2026-07-21T09:26:36.3544556Z 12.02 E: Unable to locate package python3
+2026-07-21T09:26:36.3544888Z 12.02 E: Unable to locate package python3-pip
+2026-07-21T09:26:36.3545233Z 12.02 E: Unable to locate package python-is-python3
+2026-07-21T09:26:36.3545622Z 12.02 E: Unable to locate package tini
+2026-07-21T09:26:36.3545902Z ------
+2026-07-21T09:26:36.3724263Z Dockerfile:14
+2026-07-21T09:26:36.3724707Z --------------------
+2026-07-21T09:26:36.3725029Z   13 |     
+2026-07-21T09:26:36.3725319Z   14 | >>> RUN apt-get update && apt-get install -y --no-install-recommends \
+2026-07-21T09:26:36.3725622Z   15 | >>>     build-essential \
+2026-07-21T09:26:36.3725906Z   16 | >>>     ca-certificates \
+2026-07-21T09:26:36.3726468Z   17 | >>>     cmake \
+2026-07-21T09:26:36.3727118Z   18 | >>>     git \
+2026-07-21T09:26:36.3727424Z   19 | >>>     libjpeg-dev \
+2026-07-21T09:26:36.3727660Z   20 | >>>     libpng-dev \
+2026-07-21T09:26:36.3866609Z   21 | >>>     libtbb-dev \
+2026-07-21T09:26:36.3866852Z   22 | >>>     libtiff-dev \
+2026-07-21T09:26:36.3867065Z   23 | >>>     pkg-config \
+2026-07-21T09:26:36.3867296Z   24 | >>>     python3 \
+2026-07-21T09:26:36.3867505Z   25 | >>>     python3-pip \
+2026-07-21T09:26:36.3867721Z   26 | >>>     python-is-python3 \
+2026-07-21T09:26:36.3867943Z   27 | >>>     tini \
+2026-07-21T09:26:36.3868974Z   28 | >>>     && rm -rf /var/lib/apt/lists/*
+2026-07-21T09:26:36.3869220Z   29 |     
+2026-07-21T09:26:36.3869424Z --------------------
+2026-07-21T09:26:36.3869878Z ERROR: failed to build: failed to solve: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+2026-07-21T09:26:36.3870209Z 
+2026-07-21T09:26:36.3870448Z ##[error]#0 building with "default" instance using docker driver
+2026-07-21T09:26:36.3870699Z ##[error]
+2026-07-21T09:26:36.3870932Z ##[error]#1 [internal] load build definition from Dockerfile
+2026-07-21T09:26:36.3871190Z ##[error]#1 transferring dockerfile: 2.61kB done
+2026-07-21T09:26:36.3871416Z ##[error]#1 DONE 0.1s
+2026-07-21T09:26:36.3871620Z ##[error]
+2026-07-21T09:26:36.3871883Z ##[error]#2 [internal] load metadata for docker.io/library/ubuntu:22.04
+2026-07-21T09:26:36.3872137Z ##[error]#2 DONE 0.0s
+2026-07-21T09:26:36.3872339Z ##[error]
+2026-07-21T09:26:36.3872550Z ##[error]#3 [internal] load .dockerignore
+2026-07-21T09:26:36.3872782Z ##[error]#3 transferring context:
+2026-07-21T09:26:36.3873012Z ##[error]#3 transferring context: 163B done
+2026-07-21T09:26:36.3873251Z ##[error]#3 DONE 0.1s
+2026-07-21T09:26:36.3873449Z ##[error]
+2026-07-21T09:26:36.3873671Z ##[error]#4 [ 1/11] FROM docker.io/library/ubuntu:22.04
+2026-07-21T09:26:36.3873908Z ##[error]#4 CACHED
+2026-07-21T09:26:36.3874155Z ##[error]
+2026-07-21T09:26:36.3874384Z ##[error]#5 [internal] load build context
+2026-07-21T09:26:36.3874632Z ##[error]#5 transferring context: 186.34MB 3.0s done
+2026-07-21T09:26:36.3875163Z ##[error]#5 DONE 3.1s
+2026-07-21T09:26:36.3875396Z ##[error]
+2026-07-21T09:26:36.3875775Z ##[error]#6 [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*
+2026-07-21T09:26:36.3893518Z ##[error]#6 1.441 Ign:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:36.3893825Z ##[error]#6 1.734 Ign:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:36.3894251Z ##[error]#6 2.397 Ign:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:36.3894546Z ##[error]#6 2.874 Ign:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:36.3894834Z ##[error]#6 3.305 Ign:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:36.3895131Z ##[error]#6 3.654 Ign:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:36.3895439Z ##[error]#6 4.354 Ign:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:36.3895731Z ##[error]#6 4.786 Ign:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:36.3896020Z ##[error]#6 5.770 Ign:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:36.3896309Z ##[error]#6 6.615 Ign:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:36.3896597Z ##[error]#6 7.089 Ign:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:36.3896899Z ##[error]#6 7.553 Ign:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:36.3897182Z ##[error]#6 10.24 Err:1 http://archive.ubuntu.com/ubuntu jammy InRelease
+2026-07-21T09:26:36.3897446Z ##[error]#6 10.24   Connection failed [IP: 91.189.92.23 80]
+2026-07-21T09:26:36.3897718Z ##[error]#6 11.08 Err:2 http://security.ubuntu.com/ubuntu jammy-security InRelease
+2026-07-21T09:26:36.3898009Z ##[error]#6 11.08   Connection failed [IP: 185.125.190.83 80]
+2026-07-21T09:26:36.3898282Z ##[error]#6 11.56 Err:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+2026-07-21T09:26:36.3898550Z ##[error]#6 11.56   Connection failed [IP: 185.125.190.82 80]
+2026-07-21T09:26:36.3898830Z ##[error]#6 11.98 Err:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+2026-07-21T09:26:36.3899114Z ##[error]#6 11.98   Connection failed [IP: 91.189.91.83 80]
+2026-07-21T09:26:36.3899353Z ##[error]#6 11.98 Reading package lists...
+2026-07-21T09:26:36.3899647Z ##[error]#6 11.99 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease  Connection failed [IP: 91.189.92.23 80]
+2026-07-21T09:26:36.3900005Z ##[error]#6 11.99 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease  Connection failed [IP: 185.125.190.82 80]
+2026-07-21T09:26:36.3900384Z ##[error]#6 11.99 W: Failed to fetch http://archive.ubuntu.com/ubuntu/dists/jammy-backports/InRelease  Connection failed [IP: 91.189.91.83 80]
+2026-07-21T09:26:36.3900745Z ##[error]#6 11.99 W: Failed to fetch http://security.ubuntu.com/ubuntu/dists/jammy-security/InRelease  Connection failed [IP: 185.125.190.83 80]
+2026-07-21T09:26:36.3901264Z ##[error]#6 11.99 W: Some index files failed to download. They have been ignored, or old ones used instead.
+2026-07-21T09:26:36.3901916Z ##[error]#6 12.01 Reading package lists...
+2026-07-21T09:26:36.3902159Z ##[error]#6 12.02 Building dependency tree...
+2026-07-21T09:26:36.3902386Z ##[error]#6 12.02 Reading state information...
+2026-07-21T09:26:36.3902651Z ##[error]#6 12.02 Package ca-certificates is not available, but is referred to by another package.
+2026-07-21T09:26:36.3902942Z ##[error]#6 12.02 This may mean that the package is missing, has been obsoleted, or
+2026-07-21T09:26:36.3904354Z ##[error]#6 12.02 is only available from another source
+2026-07-21T09:26:36.3904595Z ##[error]#6 12.02 
+2026-07-21T09:26:36.3905054Z ##[error]#6 12.02 E: Unable to locate package build-essential
+2026-07-21T09:26:36.3905506Z ##[error]#6 12.02 E: Package 'ca-certificates' has no installation candidate
+2026-07-21T09:26:36.3905835Z ##[error]#6 12.02 E: Unable to locate package cmake
+2026-07-21T09:26:36.3906346Z ##[error]#6 12.02 E: Unable to locate package git
+2026-07-21T09:26:36.3906854Z ##[error]#6 12.02 E: Unable to locate package libjpeg-dev
+2026-07-21T09:26:36.3907281Z ##[error]#6 12.02 E: Unable to locate package libpng-dev
+2026-07-21T09:26:36.3907531Z ##[error]#6 12.02 E: Unable to locate package libtbb-dev
+2026-07-21T09:26:36.3907779Z ##[error]#6 12.02 E: Unable to locate package libtiff-dev
+2026-07-21T09:26:36.3908042Z ##[error]#6 12.02 E: Unable to locate package pkg-config
+2026-07-21T09:26:36.3908287Z ##[error]#6 12.02 E: Unable to locate package python3
+2026-07-21T09:26:36.3908532Z ##[error]#6 12.02 E: Unable to locate package python3-pip
+2026-07-21T09:26:36.3908792Z ##[error]#6 12.02 E: Unable to locate package python-is-python3
+2026-07-21T09:26:36.3909065Z ##[error]#6 12.02 E: Unable to locate package tini
+2026-07-21T09:26:36.3909498Z ##[error]#6 ERROR: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+2026-07-21T09:26:36.3910248Z ##[error]------
+2026-07-21T09:26:36.3911099Z ##[error] > [ 2/11] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*:
+2026-07-21T09:26:36.3919306Z ##[error]12.02 E: Unable to locate package git
+2026-07-21T09:26:36.3919574Z ##[error]12.02 E: Unable to locate package libjpeg-dev
+2026-07-21T09:26:36.3919852Z ##[error]12.02 E: Unable to locate package libpng-dev
+2026-07-21T09:26:36.3920241Z ##[error]12.02 E: Unable to locate package libtbb-dev
+2026-07-21T09:26:36.3929547Z ##[error]12.02 E: Unable to locate package libtiff-dev
+2026-07-21T09:26:36.3929823Z ##[error]12.02 E: Unable to locate package pkg-config
+2026-07-21T09:26:36.3930160Z ##[error]12.02 E: Unable to locate package python3
+2026-07-21T09:26:36.3930578Z ##[error]12.02 E: Unable to locate package python3-pip
+2026-07-21T09:26:36.3931631Z ##[error]12.02 E: Unable to locate package python-is-python3
+2026-07-21T09:26:36.3931924Z ##[error]12.02 E: Unable to locate package tini
+2026-07-21T09:26:36.3932173Z ##[error]------
+2026-07-21T09:26:36.3932414Z ##[error]Dockerfile:14
+2026-07-21T09:26:36.3932658Z ##[error]--------------------
+2026-07-21T09:26:36.3932903Z ##[error]  13 |     
+2026-07-21T09:26:36.3933172Z ##[error]  14 | >>> RUN apt-get update && apt-get install -y --no-install-recommends \
+2026-07-21T09:26:36.3933447Z ##[error]  15 | >>>     build-essential \
+2026-07-21T09:26:36.3933702Z ##[error]  16 | >>>     ca-certificates \
+2026-07-21T09:26:36.3933936Z ##[error]  17 | >>>     cmake \
+2026-07-21T09:26:36.3934175Z ##[error]  18 | >>>     git \
+2026-07-21T09:26:36.3934397Z ##[error]  19 | >>>     libjpeg-dev \
+2026-07-21T09:26:36.3934637Z ##[error]  20 | >>>     libpng-dev \
+2026-07-21T09:26:36.3934864Z ##[error]  21 | >>>     libtbb-dev \
+2026-07-21T09:26:36.3935152Z ##[error]  22 | >>>     libtiff-dev \
+2026-07-21T09:26:36.3935543Z ##[error]  23 | >>>     pkg-config \
+2026-07-21T09:26:36.3935766Z ##[error]  24 | >>>     python3 \
+2026-07-21T09:26:36.3935984Z ##[error]  25 | >>>     python3-pip \
+2026-07-21T09:26:36.3936724Z ##[error]  26 | >>>     python-is-python3 \
+2026-07-21T09:26:36.3937592Z ##[error]  27 | >>>     tini \
+2026-07-21T09:26:36.3937972Z ##[error]  28 | >>>     && rm -rf /var/lib/apt/lists/*
+2026-07-21T09:26:36.3938207Z ##[error]  29 |     
+2026-07-21T09:26:36.3938428Z ##[error]--------------------
+2026-07-21T09:26:36.3939146Z ##[error]ERROR: failed to build: failed to solve: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends     build-essential     ca-certificates     cmake     git     libjpeg-dev     libpng-dev     libtbb-dev     libtiff-dev     pkg-config     python3     python3-pip     python-is-python3     tini     && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+2026-07-21T09:26:36.3968427Z ##[error]The process '/usr/bin/docker' failed with exit code 1
+2026-07-21T09:26:36.4000182Z ##[section]Finishing: Build Parallel Haar Training Docker Image
+2026-07-21T09:26:36.4053378Z Skipping step due to condition evaluation.
+Evaluating: SucceededNode()
+Result: False
+
+2026-07-21T09:26:36.4091854Z Skipping step due to condition evaluation.
+Evaluating: SucceededNode()
+Result: False
+
+2026-07-21T09:26:36.4131006Z ##[section]Starting: Checkout object_detection@refs/tags/v2.2 to s
+2026-07-21T09:26:36.4139490Z ==============================================================================
+2026-07-21T09:26:36.4139682Z Task         : Get sources
+2026-07-21T09:26:36.4139799Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2026-07-21T09:26:36.4139946Z Version      : 1.0.0
+2026-07-21T09:26:36.4140055Z Author       : Microsoft
+2026-07-21T09:26:36.4140168Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2026-07-21T09:26:36.4140313Z ==============================================================================
+2026-07-21T09:26:36.8286532Z Cleaning any cached credential from repository: object_detection (Git)
+2026-07-21T09:26:36.8421202Z ##[section]Finishing: Checkout object_detection@refs/tags/v2.2 to s
+2026-07-21T09:26:36.8459652Z ##[section]Starting: Finalize Job
+2026-07-21T09:26:36.8475978Z Cleaning up task key
+2026-07-21T09:26:36.8477082Z Start cleaning up orphan processes.
+2026-07-21T09:26:36.8943648Z ##[section]Finishing: Finalize Job
+2026-07-21T09:26:36.8981017Z ##[section]Finishing: Job
