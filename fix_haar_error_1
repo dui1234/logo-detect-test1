@@ -1,0 +1,58 @@
+add these variables:
+
+variables:
+  - name: REGISTRY_JFROG_NAME
+    value: OCI-IN-SEA-AIC-01
+
+  - name: haarTrainingImage
+    value: inno-aicp-oci/cpu/bank-logo-haar/finetune
+
+  - name: haarBuildContext
+    value: Haar/train_parallel_v1
+
+  # Corporate proxy used by the self-hosted build agent
+  - name: BUILD_PROXY
+    value: http://10.4.7.4:8080
+
+  - name: BUILD_NO_PROXY
+    value: localhost,127.0.0.1,sscm.bangkokbank.com,.bangkokbank.com
+
+
+Then replace the Docker build task’s arguments section with:
+arguments: >-
+  --build-arg OPENCV_VERSION=3.4.20
+  --build-arg OPENCV_BUILD_JOBS=8
+  --build-arg HTTP_PROXY=$(BUILD_PROXY)
+  --build-arg HTTPS_PROXY=$(BUILD_PROXY)
+  --build-arg http_proxy=$(BUILD_PROXY)
+  --build-arg https_proxy=$(BUILD_PROXY)
+  --build-arg NO_PROXY=$(BUILD_NO_PROXY)
+  --build-arg no_proxy=$(BUILD_NO_PROXY)
+
+
+  The complete build task should look like this:
+
+  - task: Docker@2
+  inputs:
+    command: build
+    containerRegistry: $(REGISTRY_JFROG_NAME)
+    Dockerfile: $(haarBuildContext)/Dockerfile
+    repository: $(haarTrainingImage)
+    buildContext: $(haarBuildContext)
+
+    arguments: >-
+      --build-arg OPENCV_VERSION=3.4.20
+      --build-arg OPENCV_BUILD_JOBS=8
+      --build-arg HTTP_PROXY=$(BUILD_PROXY)
+      --build-arg HTTPS_PROXY=$(BUILD_PROXY)
+      --build-arg http_proxy=$(BUILD_PROXY)
+      --build-arg https_proxy=$(BUILD_PROXY)
+      --build-arg NO_PROXY=$(BUILD_NO_PROXY)
+      --build-arg no_proxy=$(BUILD_NO_PROXY)
+
+    tags: |
+      latest
+      $(Build.SourceBranchName)
+      $(Build.BuildId)
+
+  displayName: Build Parallel Haar Training Docker Image
